@@ -5,7 +5,7 @@ class UserTest < ActiveSupport::TestCase
   #   assert true
   # end
   def setup
-  	@user = User.new(name: "test name", email: "testemail@test.com")
+  	@user = User.new(name: "test name", email: "testemail@test.com", balance: 0)
   end
 
   test "should be valid" do
@@ -20,6 +20,16 @@ class UserTest < ActiveSupport::TestCase
   test "email should exist" do
     @user.email = "   "
     assert_not @user.valid?
+  end
+
+  test "balance should exist" do
+    @user.balance = "   "
+    assert_not @user.valid?
+  end
+
+  test "balance cannot be negative" do
+    @user.balance = -1
+    assert_not @user.balance > 0
   end
 
   test "name should not be too long" do
