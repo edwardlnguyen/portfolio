@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>User:</strong>
+  <%= @portfolio.user_id %>
+</p>
+
+<p>
+  <strong>Symbol:</strong>
+  <%= @portfolio.symbol %>
+</p>
+
+<p>
+  <strong>Owned:</strong>
+  <%= @portfolio.owned %>
+</p>
+
+<%= link_to 'Edit', edit_portfolio_path(@portfolio) %> |
+<%= link_to 'Back', portfolios_path %>

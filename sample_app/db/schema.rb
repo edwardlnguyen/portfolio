@@ -11,7 +11,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150630065904) do
+ActiveRecord::Schema.define(version: 20150630071809) do
+
+  create_table "portfolios", force: true do |t|
+    t.integer  "user_id"
+    t.string   "symbol"
+    t.integer  "owned"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "userposts", force: true do |t|
     t.text     "context"
