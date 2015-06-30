@@ -1,0 +1,33 @@
+Searching 974 files for "flash"
+
+/Users/edwardnguyen/Desktop/codingchall/rails/sample_app/app/controllers/sessions_controller.rb:
+    8    		#login
+    9    	else
+   10:   		flash.now[:danger] = 'Invalid name or email'
+   11    		render 'new'
+   12    	end
+
+/Users/edwardnguyen/Desktop/codingchall/rails/sample_app/app/controllers/users_controller.rb:
+   12    	if @user.save
+   13    		#good save
+   14:   		flash[:success] = "Creation Success! Welcome to the portfolio app!"
+   15    		redirect_to @user
+   16    	else 
+
+/Users/edwardnguyen/Desktop/codingchall/rails/sample_app/app/views/layouts/application.html.erb:
+   13  		<%= render 'layouts/header' %>
+   14  		<div class="container">
+   15: 			<% flash.each do |message_type, message| %>
+   16          	<div class="alert alert-<%= message_type %>"><%= message %></div>
+   17       		<% end %>
+
+/Users/edwardnguyen/Desktop/codingchall/rails/sample_app/test/integration/users_login_test.rb:
+   10    	post login_path, session: { name: "", email: "" }
+   11    	assert_template 'sessions/new' 
+   12:   	assert_not flash.empty?
+   13    	get root_path
+   14:   	assert flash.empty?
+   15    end
+   16  
+
+5 matches across 4 files
