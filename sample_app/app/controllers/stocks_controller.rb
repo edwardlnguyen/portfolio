@@ -24,13 +24,13 @@ class StocksController < ApplicationController
   # POST /stocks
   # POST /stocks.json
   def create
-    @stock = Stock.new(stock_params)
+    @stock = Stock.find_by_symbol(params[:stock][:symbol]) || Stock.new(stock_params)
     # debugger
     data = YahooFinance.quotes([@stock.symbol], [:ask])
     @stock.price = data[0].ask
     respond_to do |format|
       if @stock.save
-        format.html { redirect_to @stock, notice: 'Stock was successfully created.' }
+        format.html { redirect_to @stock, notice: 'Stock found!' }
         format.json { render :show, status: :created, location: @stock }
       else
         format.html { render :new }
