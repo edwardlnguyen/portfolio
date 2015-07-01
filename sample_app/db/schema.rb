@@ -11,12 +11,27 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150630071809) do
+ActiveRecord::Schema.define(version: 20150701053351) do
 
   create_table "portfolios", force: true do |t|
     t.integer  "user_id"
     t.string   "symbol"
     t.integer  "owned"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "stock_portfolios", force: true do |t|
+    t.integer  "stockOwned"
+    t.integer  "portfolio_id"
+    t.integer  "stock_id"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+  end
+
+  create_table "stocks", force: true do |t|
+    t.string   "symbol"
+    t.integer  "price"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
