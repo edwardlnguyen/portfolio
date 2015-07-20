@@ -3,8 +3,14 @@
   <aside class="col-md-4">
     <section class="user_info">
       <h1>
-        <%= @user.name + "\'s Profile:"%>
+        <%= @user.name + "\'s Profile: Balance: $" + @user.balance.to_s %>
       </h1>
     </section>
   </aside>
 </div>
+<ul>
+	<%= link_to 'find stock', stockInfo_path %>
+</ul>
+<ul>
+<%= link_to 'add portfolio', new_portfolio_path %>
+</ul>

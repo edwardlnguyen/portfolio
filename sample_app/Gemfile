@@ -3,6 +3,9 @@ source 'https://rubygems.org'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.0.rc3'
 
+#yahoo finance
+gem 'yahoo-finance', require: 'yahoo_finance'
+
 #uses boostrap framework 
 gem 'bootstrap-sass', '3.2.0.0'
 

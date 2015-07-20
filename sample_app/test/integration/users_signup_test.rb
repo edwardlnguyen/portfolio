@@ -7,7 +7,7 @@ class UsersSignupTest < ActionDispatch::IntegrationTest
   	test "invalid signup test" do
   		get signup_path
   		assert_no_difference 'User.count' do 
-  			post users_path, user: { name:  "", email: "user@invalid"}
+  			post users_path, user: { name:  "", email: "user@invalid", balance: " "}
     end
     assert_template 'users/new'
   end
@@ -15,7 +15,7 @@ class UsersSignupTest < ActionDispatch::IntegrationTest
   test "valid signup information" do
     get signup_path
     assert_difference 'User.count', 1 do
-      post_via_redirect users_path, user: { name:  "Example User", email: "user@example.com"}
+      post_via_redirect users_path, user: { name:  "Example User", email: "user@example.com", balance: 100000}
     end
     assert_template 'users/show'
     assert is_logged_in?
